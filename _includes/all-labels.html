@@ -1,0 +1,22 @@
+<h2  class="group-head">Labels</h2>
+<div class="tag-group">
+
+    {% capture labels_str %}
+      {% for tag in site.tags %}
+        {% if tag[0] contains '_label' %} 
+          {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+        {% endif %}
+      {% endfor %}
+    {% endcapture %}
+
+{% include label-info.html %}
+    <div class="tag-candidates">
+    {% assign labels_array = labels_str | split:' ' | sort | reverse %}
+    {% for temp_label in labels_array %}
+      {% assign label_attrs = temp_label | split: '#' %}
+      {% assign label_name = label_attrs[1] | split: '_' %}
+        {% capture label_name_str %}{{ label_name[0] }}{% endcapture %}
+        <a class="post-tag tag-candidate" href="/blog/tag/label/{{ label_attrs[1] }}" {% if label_info and label_info[label_name_str] %} title="{{ label_info[label_name_str] }}" {% endif %}>{{ label_name[0] }} ({{ label_attrs[2] }})</a>
+    {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<head>
+
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.excerpt | default: site.description | newline_to_br | strip_newlines | replace: '<br />', ' ' | strip_html | strip |  truncatewords: 150 | escape }}">
+{% if site.author %}<meta name="author" content="{{ site.author }}">{% endif %}
+
+    <!-- open graph meta -->
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ page.excerpt | default: site.description | newline_to_br | strip_newlines | replace: '<br />', ' ' | strip_html | strip |  truncatewords: 50 | escape }}">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+
+    {% if page.title %}
+        <meta property="og:type" content="article">
+    {% else %}
+        <meta property="og:type" content="website">
+    {% endif %}
+    {% if page.date %}
+        <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+        <meta property="article:author" content="{{ site.url }}/about/">
+    {% endif %}
+
+{% comment %}
+    {% if page.tags %}
+      {% for tag in page.tags %}
+        {% if tag contains '_' %} 
+          {% assign temp_tag = tag | split:'_' %}
+          {% if temp_tag.size > 1 and (temp_tag[1] == "tag") %}     {% comment %} (temp_tag[1] == "tag" or temp_tag[1] == "topic") {% endcomment %}
+            <meta property="article:tag" content="{{ temp_tag[0] }}">
+          {% endif %}
+        {% else %} 
+          <meta property="article:tag" content="{{ tag }}">
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if page.categories %}
+      {% for category in page.categories %}
+        <meta property="article:tag" content="{{ category }}">
+      {% endfor %}
+    {% endif %}
+{% endcomment %}
+    {% assign keywords = "" %}
+    {% if page.tags %}
+      {% for tag in page.tags %}
+        {% if tag contains '_' %} 
+          {% assign temp_tag = tag | split:'_' %}
+          {% if temp_tag.size > 1 and (temp_tag[1] == "tag") %}     {% comment %} (temp_tag[1] == "tag" or temp_tag[1] == "topic") {% endcomment %}
+            {% assign keywords = keywords | append: " " | append:temp_tag[0] %}
+          {% endif %}
+        {% else %} 
+          {% assign keywords = keywords | append: " " | append:tag %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if page.categories %}
+      {% for category in page.categories %}
+        {% assign keywords = keywords | append: " " | append:category %}
+      {% endfor %}
+    {% endif %}
+    {% assign kw_arr = keywords | strip_html | strip | split:" " %}
+    {% for kw in kw_arr %}
+      <meta property="article:tag" content="{{ kw }}">
+    {% endfor %}
+    {% if kw_arr.size > 0 %}<meta name="keywords" content="{{ kw_arr | join:" " }}">{% endif %}
+
+
+
+
+    {% if page.image %}
+      {% assign rel_path = '/assets/images/' | append: page.image %}
+      <meta property="og:image" content="{{ rel_path | relative_url }}">
+    {% elsif site.title_image %}
+      <meta property="og:image" content="{{ site.title_image | relative_url }}">
+    {% endif %}
+    <!-- end of open graph meta -->
+
+
+
+    <!-- Twitter cards -->
+    <meta name="twitter:site" content="@{{ site.twitter_username }}">
+    {% if site.author %}<meta name="twitter:creator" content="{{ site.author }}">{% endif %}
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta name="twitter:description" content="{{ page.excerpt | default: site.description | newline_to_br | strip_newlines | replace: '<br />', ' ' | strip_html | strip |  truncatewords: 50 | escape }}">
+
+
+    {% if page.image %}
+        <meta name="twitter:card"  content="summary_large_image">
+        {% assign rel_path = '/assets/images/' | append: page.image %}
+        <meta name="twitter:image" content="{{ rel_path | relative_url }}">
+    {% elsif site.title_image %}
+        <meta name="twitter:card"  content="summary">
+        <meta name="twitter:image" content="{{ site.title_image  | relative_url }}">
+    {% endif %}
+    <!-- end of Twitter cards -->
+
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    {% if page.mathjs == true %}<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>{% endif %}
+    
+</head>

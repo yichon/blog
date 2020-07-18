@@ -1,0 +1,37 @@
+<h2 class="group-head">Categories</h2>
+<div class="tag-group">
+{% comment %}
+  {% capture site_categories_str %}
+    {% for category in site.categories %}
+       {{ category[1].size | plus: 1000 }}#{{ category[0] }}#{{ category[1].size }}
+    {% endfor %}
+  {% endcapture %}
+{% endcomment %}
+
+
+{% capture filtered_site_categories_str %}
+  {% for category in site.categories %}
+    {% assign count = 0 %}
+    {% assign wrapped_category_str = "|" | append:category[0] | append:"|" %}
+    {% for post in site.posts %}
+      {% assign post_categories_str = post.categories | join:"|" %}
+      {% assign post_categories_str = "|" | append:post_categories_str | append:"|" %}
+      {% if post_categories_str contains wrapped_category_str and post.hidden != true %}          {% comment %} hidden posts filtered {% endcomment %}
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {{ count | plus: 1000 }}#{{ category[0] }}#{{ count }}
+    {% assign count = 0 %}
+  {% endfor%}
+{% endcapture %}
+
+{% include category-info.html %}
+  <div class="tag-candidates">
+  {% assign site_categories_array = filtered_site_categories_str | split:' ' | sort | reverse %}
+  {% for temp_category in site_categories_array %}
+    {% assign category_attrs = temp_category | split: '#' %}
+      {% capture category_name %}{{ category_attrs[1] }}{% endcapture %}
+      <a class="post-tag tag-candidate" href="/blog/category/{{ category_attrs[1] }}" {% if category_info and category_info[category_name] %} title="{{ category_info[category_name] }}" {% endif %}>{{ category_attrs[1]}} ({{ category_attrs[2] }})</a>
+  {% endfor %}
+  </div>
+</div>

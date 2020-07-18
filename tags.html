@@ -1,0 +1,22 @@
+---
+layout: default
+title:  "Tags"
+---
+<div class="content-div">
+
+  {% include all-tags.html %}
+
+
+  {% include all-categories.html %}
+
+
+  {% if site.show_topics == true %}
+    {% include all-topics.html %}
+  {% endif %}
+
+
+  {% if site.show_labels == true %}
+    {% include all-labels.html %}
+  {% endif %}
+
+</div>

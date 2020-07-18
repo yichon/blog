@@ -1,0 +1,16 @@
+---
+layout: default
+title: Archive
+---
+<div class="content-div">
+  <h1 class="page-heading">Archive</h1>
+  <ul class="posts">
+  {% for post in site.posts %}
+    {% if post.hidden != true %}
+      <li>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> <span>({{ post.date | date: "%b %-d, %Y" }})</span>
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</div>

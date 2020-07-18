@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="post content-div">
+
+  <h1>{{ page.title }}</h1>
+{% include label-info.html %}
+{% if label_info and label_info[page.label] %}<p>({{ label_info[page.label] }})</p>{% endif %}
+
+  <ul>
+    {% capture name %}{{ page.label | append:'_label' }}{% endcapture %}
+    {% for post in site.tags[name] %}
+      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
+        {{ post.description }}
+      </li>
+    {% endfor %}
+  </ul>
+
+
+
+
+</div>
+
+<hr>

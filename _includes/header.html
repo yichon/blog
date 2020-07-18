@@ -1,0 +1,18 @@
+<header class="site-header" role="banner" id='header-bar'>
+
+
+        <nav class="site-nav">
+          {% assign default_paths = site.pages | map: "path" %}
+
+            <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+
+            <a class="nav-page-link" href="{{ 'about.html' | relative_url }}" target="_blank" rel="noopener noreferrer">About</a>
+
+            <a class="nav-page-link" href="{{ 'archive.html' | relative_url }}" target="_blank" rel="noopener noreferrer">Archive</a>
+
+            <a class="nav-page-link" href="{{ 'tags.html' | relative_url }}" target="_blank" rel="noopener noreferrer">Tags</a>
+
+        </nav>
+
+
+</header>

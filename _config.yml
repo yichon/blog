@@ -1,0 +1,103 @@
+#######################################################
+title                : Joe Yichong's Blog
+author               : Joe Yichong
+email                : yichong.joe [at] gmail.com
+description          : A tech blog
+baseurl              : /blog
+url                  : "" # the base hostname & protocol for your site, e.g. http://example.com
+##permalink            :date
+permalink            : /:year/:month/:day
+#paginate_path       : /page:num
+timezone             : Africa/Abidjan 
+port                 : 9002
+host                 : 127.0.0.1
+show_dir_listing     : false
+
+
+# Where things are
+source               : .
+destination          : ./_site
+#collections_dir      : .
+plugins_dir          : _plugins
+layouts_dir          : _layouts
+data_dir             : _data
+includes_dir         : _includes
+sass:
+  sass_dir           : _sass
+collections:
+  posts:
+    output           : true
+  tag:
+    output           : true
+  category:
+    output           : true
+  series:
+    output           : true
+  metas:
+    output           : false    ## stop outputting html files in this directory by setting it to `false`
+## Note that the 'site.tags' doesn't count the tags in other non-posts collections.
+title_image          : /assets/icons/bg-500x300.png
+
+
+
+# Filtering Content
+show_drafts         : null
+limit_posts         : 0
+future              : false
+unpublished         : false
+
+
+show_tags            : true
+show_categories      : true
+show_topics          : true
+show_labels          : false
+#focus_categories    : all
+## 
+
+
+twitter_username     : Joe_yichong
+github_username      :  JoeYichong
+
+
+
+# Build settings
+# https://jekyllrb.com/docs/configuration/markdown/
+markdown             : kramdown
+highlighter          : rouge
+excerpt_separator    : <!--more-->
+plugins:
+  - jekyll-feed
+#  - jekyll-archives
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+
+kramdown:
+  auto_ids           : true
+  input              : GFM
+  syntax_highlighter : rouge
+#  entity_output     : as_char
+#  toc_levels        : [1, 2, 3, 4, 5, 6]
+#  smart_quotes      : lsquo,rsquo,ldquo,rdquo
+#  hard_wrap         : false
+#  footnote_nr       : 1
+#  show_warnings     : false
+
+
+## https://jekyllrb.com/docs/configuration/liquid/
+#liquid:
+#  error_mode        : warn
+#  strict_filters    : false
+#  strict_variables  : false
+
+
+# Jekyll provides by default Content-Type and Cache-Control response headers: 
+# one dynamic in order to specify the nature of the data being served, 
+# the other static in order to disable caching so that you don’t have to fight with Chrome’s aggressive caching when you are in development mode.
+#webrick:
+#  headers:
+#    My-Header: My-Value
+#    My-Other-Header: My-Other-Value
+
+

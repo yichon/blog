@@ -1,0 +1,125 @@
+@import "dependencies/fonts";
+@import "dependencies/vanilla-syntax";
+
+@charset "utf-8";
+
+// Define colors  //#4c4c4c
+$grey-color:       #828282 !default;  
+$grey-color-dark:  darken($grey-color, 25%) !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$white-smoke:      #eaeaea; //#f5f5f5; //#eee;  //#e7f0f7; //#f0f0f0; //
+
+$mild-blue-color: #286ee0;
+$blue-color-light: #bf616a;
+$rosy-brown: darken(#BC8F8F, 20%);
+
+$steelblue: #4682B4; //#396a93 //#386991
+
+//$brand-color:           #e0491f !default;
+$crimson-color:         #cc3300; //#cc2900; //#e0491f; //#b32400;
+$crimson-color-light:   #ff3300; //#f9493f;
+
+
+// Define defaults for each variable.
+$base-font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;  // "Source Sans Pro", "Open Sans",  "Noto Sans", "Segoe UI", Verdana, Geneva, "Helvetica Neue"
+$base-font-size:   16px !default; //$base-width / 50 !default; 
+$base-font-weight: 400 !default;
+$base-line-height: 1.65 !default;
+$small-font-size:  $base-font-size * 0.85 !default;
+
+// Width of the content area
+$base-width:       900px !default;
+$base-width-plus:  $base-width * 1.2 !default;
+$on-palm:          600px !default;
+$on-palm-plus:     900px !default;
+$on-laptop:        1280px !default; //800px
+$on-laptop-plus:   10000px !default;
+
+$banner-height:        5.5vh; //$base-font-size * 3; ; //
+$banner-height-w:  7vw; //$base-font-size * 3;
+$base-spacing:     $banner-height / 2 !default; 
+
+$text-color:       #202120; //#111 !default; //#24292e; //
+$background-color: $white-smoke !default; // #fff !default;
+
+
+$link-color:            $crimson-color !default;
+$link-color-hover:      $crimson-color-light;   
+$link-color-active:     $crimson-color !default;
+$link-color-visited:    $crimson-color !default;
+$headline-color:        $crimson-color;
+//$headline-color: $crimson-color;
+
+// Note that here '85' means '0.85'
+@function r-size($r) {
+  @return $base-width * $r / 100;
+}
+
+@function r-font-size($r) {
+  @return $base-font-size * $r;
+}
+
+@function r-font-weight($r) {
+  @return $base-font-weight * $r;
+}
+
+@function r-spacing($r) {
+  @return $base-spacing * $r;
+}
+
+@function r-banner-height($r) {
+  @return $banner-height * $r;
+}
+
+@function r-banner-height-w($r) {
+  @return $banner-height-w * $r;
+}
+
+@function r-line-height($r) {
+  @return $base-line-height * $r;
+}
+
+@function r-width($r) {
+  @return $base-width * $r;
+}
+
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: r-spacing(0.5);
+//     padding-left: r-spacing(0.5);
+//   }
+// }
+@mixin media-query($device) {
+  @media only screen and (max-width: $device) {
+    @content;
+  }
+}
+
+// Use 'clearfix' like this:
+// .post-meta {
+//   @extend %clearfix;
+// }
+%clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+%base-paper {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+
+
+// Import partials.
+@import
+  "base",
+  "layout",
+  "banner",
+  "footer",
+  "post",
+  "code";
+

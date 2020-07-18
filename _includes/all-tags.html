@@ -1,0 +1,57 @@
+<h2 class="group-head">Tags</h2>
+<div class="tag-group">
+{% comment %}
+  {% capture site_tags_str %}
+    {% for tag in site.tags %}
+       {% if tag[0] contains '_' %}
+          {% assign temp_tag = tag[0] | split:'_' %}
+          {% if temp_tag.size > 1 and temp_tag[1] == "tag" %}
+             {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+          {% endif %}
+       {% else %} 
+          {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+       {% endif %}
+    {% endfor %}
+  {% endcapture %}
+{% endcomment %}
+
+
+{% capture filtered_site_tags_str %}
+  {% for tag in site.tags %}
+
+    {% assign count = 0 %}
+    {% assign wrapped_tag_str = "|" | append:tag[0] | append:"|" %}
+    {% for post in site.posts %}
+      {% assign post_tags_str = post.tags | join:"|" %}
+      {% assign post_tags_str = "|" | append:post_tags_str | append:"|" %}
+      {% if post_tags_str contains wrapped_tag_str and post.hidden != true %}             {% comment %} hidden posts filtered {% endcomment %}
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    {% comment %} Note that tags with 0 posts still visible (to completely filter, add "if count != 0 ...") {% endcomment %}
+    {% if tag[0] contains '_' %}
+      {% assign tag_attrs_array = tag[0] | split:'_' %}
+         {% if tag_attrs_array.size > 1 and tag_attrs_array[1] == "tag" %}
+             {{ count | plus: 1000 }}#{{ tag_attrs_array[0] }}#{{ count }}
+         {% endif %}
+    {% else %} 
+       {{ count | plus: 1000 }}#{{ tag[0] }}#{{ count }}
+    {% endif %}
+
+    {% assign count = 0 %}
+  {% endfor%}
+{% endcapture %}
+
+
+{% include tag-info.html %}
+  <div class="tag-candidates">
+  {% assign site_tags_array = filtered_site_tags_str | split:' ' | sort | reverse %}
+  {% for temp_tag in site_tags_array %}
+    {% assign tag_attrs = temp_tag | split: '#' %}
+      {% capture tag_name %}{{ tag_attrs[1] }}{% endcapture %}
+      <a class="post-tag tag-candidate" href="/blog/tag/{{ tag_attrs[1] }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_attrs[1] }} ({{ tag_attrs[2] }})</a>
+  {% endfor %}
+  </div>
+</div>
+

@@ -1,0 +1,179 @@
+---
+layout: default
+---
+<script>var title_width=null</script>
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <div class="post-meta">
+
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" class="post-meta-date">
+        {{ page.date | date: "%F %R%z" }}
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-meta-author">
+        &nbsp;&nbsp;by <span itemprop="name">{{ page.author | default: site.author | default: "unknown" }}</span>
+      </span>
+      
+          {% if page.tags %}
+{% include tag-info.html %}
+            <div class="post-meta-tags">
+              {% for tag in page.tags %}      {% comment %} `page.tags` {% endcomment %}
+                {% if tag contains '_' %} 
+
+                  {% assign temp_tag = tag | split:'_' %}
+                  {% if temp_tag.size > 1 and temp_tag[1] == "tag" %}
+                    {% capture tag_name %}{{ temp_tag[0] }}{% endcapture %}
+                    {% capture tag_link_name %}{{ tag }}{% endcapture %}
+                    <a class="post-tag" href="/blog/tag/{{ tag_link_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_name }}&nbsp;</a>
+                  {% endif %}
+
+                {% else %} 
+
+                  {% capture tag_name %}{{ tag }}{% endcapture %}
+                  <a class="post-tag" href="/blog/tag/{{ tag_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_name }}&nbsp;</a>
+
+                {% endif %}
+
+              {% endfor %}
+            </div>
+          {% endif %}
+
+    </div>
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    {% comment %}{% include toc.html html=content class='table-of-content' id='markdown-toc' %}{% endcomment %}
+    {{ content }}
+  </div>
+
+
+
+<div class="post-footnote">
+          {% if site.show_labels == true %}                                               {% comment %} manage the visibility of labels {% endcomment %}
+{% include label-info.html %}
+            <span class="post-footnote-labels">
+              {% assign post_tags =  page.tags | join:'|' %}
+              {% if post_tags contains '_label' %} 
+                  <span class="footnote-label-pre">Labels:&nbsp; </span>
+                {% for tag in page.tags %}
+                  {% assign temp_tag = tag | split:'_' %}
+                  {% if temp_tag.size > 1 and temp_tag[1] == "label" %}
+                    {% capture label_name %}{{ temp_tag[0] }}{% endcapture %}
+                    {% capture label_link_name %}{{ tag }}{% endcapture %}
+                    <a class="footnote-label" href="/blog/tag/label/{{ label_link_name }}" {% if label_info and label_info[label_name] %} title="{{ label_info[label_name] }}" {% endif %}>{{ label_name }}&nbsp;</a>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                  <span class="footnote-label">&nbsp; </span>
+              {% endif %}
+            </span>
+          {% endif %}
+
+          {% if site.show_topics == true %}                                               {% comment %} manage the visibility of topics {% endcomment %}
+{% include topic-info.html %}
+            <span class="post-footnote-topics">
+              {% assign post_tags =  page.tags | join:'|' %}
+              {% if post_tags contains '_topic' %} 
+                  <span class="footnote-topic-pre">Topic:&nbsp; </span>
+                {% for tag in page.tags %}
+                  {% assign temp_tag = tag | split:'_' %}
+                  {% if temp_tag.size > 1 and temp_tag[1] == "topic" %}
+                    {% capture topic_name %}{{ temp_tag[0] }}{% endcapture %}
+                    {% capture topic_link_name %}{{ tag }}{% endcapture %}
+                    <a class="footnote-topic" href="/blog/tag/topic/{{ topic_link_name }}" {% if topic_info and topic_info[topic_name] %} title="{{ topic_info[topic_name] }}" {% endif %}>{{ topic_name }}&nbsp;</a>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                  <span class="footnote-topic">&nbsp; </span>
+              {% endif %}
+            </span>
+          {% endif %}
+
+
+        {% if page.categories.size > 0 and site.show_categories == true %}                 {% comment %} manage the visibility of topics {% endcomment %} 
+{% include category-info.html %}
+          <span class="post-footnote-categories">
+            <span class="footnote-category-pre">Category:&nbsp; </span>
+              {% for category in page.categories %}
+                {% capture category_name %}{{ category }}{% endcapture %}
+                <a class="footnote-category" href="/blog/category/{{ category }}" {% if category_info and category_info[category_name] %} title="{{ category_info[category_name] }}" {% endif %}>{{ category }}&nbsp;</a>
+              {% endfor %}
+            </span>
+        {% else %}
+           <span class="footnote-category">&nbsp; </span>
+        {% endif %}
+
+</div>
+
+
+
+  <nav class="page-navigation">
+    {% if page.hidden == true %}          {% comment %} hidden posts using the regular method `page.previous.url` and `page.next.url`  {% endcomment %}
+      {% if page.previous.url %}
+         <a class="older" href="{{page.previous.url | relative_url}}">&larr;(previous)^ {{page.previous.title}}</a>
+      {% endif %}
+      {% if page.next.url %}
+         <a class="newer" href="{{page.next.url | relative_url}}">{{page.next.title}}  ^(next)&rarr;</a>
+      {% endif %}
+    {% else %}                            {% comment %} for visible posts {% endcomment %}
+      {% assign prev = nil %}
+      {% assign next = nil %}
+      {% assign current = nil %}
+      {% assign flag = 0 %}
+      {% for post in site.posts %}
+        {% if post.hidden != true %}      {% comment %} move pointers forward if current post isn't hidden {% endcomment %}
+          {% if current != nil %} 
+            {% assign prev = current %}
+          {% endif %}
+          {% if next != nil %} 
+            {% assign current = next %}
+          {% endif %}
+          {% assign next = post %}
+        {% endif %}
+        {% if current.url == page.url and flag == 0 %}               {% comment %} in case of `flag == 1` pointers are not moving because of hidden posts {% endcomment %}
+          {% if prev != nil %}
+            <a class="newer" href="{{prev.url | relative_url}}">{{prev.title}} (next)&rarr;</a>
+          {% endif %}
+          {% if next != nil %}
+            <a class="older" href="{{next.url | relative_url}}">&larr;(previous) {{next.title}}</a>
+          {% endif %}
+          {% assign flag = 1 %}
+        {% endif %}
+      {% endfor %}
+      {% if next != nil and next.url == page.url and current != nil %}                              {% comment %} pointers hit the boundary {% endcomment %}
+        <a class="newer" href="{{current.url | relative_url}}">{{current.title}} $(next)&rarr;</a>
+      {% endif %}
+    {% endif %}
+
+
+  </nav>
+
+  {% if page.comments %}
+    {% include disqus.html %}
+  {% endif %}
+
+</article>
+
+<script>
+(function(d){var m,n;(m=d.getElementsByClassName("page-main"))&&(m=m[0])
+&&(n=d.getElementsByClassName("page-navigation"))&&(n=n[0])&&m.appendChild(n);})(document);
+</script>
+<script>
+(function(d){var f,r;(r=d.getElementById("references"))&&(f=d.getElementsByClassName("post-footnote"))
+&&(f=f[0])&&(r.parentNode.insertBefore(f, r));})(document);
+</script>
+<script>
+(function(){var t;title_width&&(t=document.getElementsByTagName("h1"))&&(t=t[0])&&(t.style.width=title_width);})();
+</script>
+<script>
+(function () {var e,x,d,z,t;(e = document.getElementsByTagName("time"))&&(e = e[0])&&(x=new Date(e.dateTime))&&
+(d=""+x.getFullYear()+"-"+((x.getMonth()<9)?("0"+(x.getMonth()+1)):(x.getMonth()+1))+"-"+((x.getDate()<10)?("0"+x.getDate()):x.getDate()))&&
+(z=x.toTimeString().slice(12, 17))&&(t=x.toTimeString().slice(0, 5))&&(e.innerHTML=d+" "+t+z);})();
+</script>
+
+
+

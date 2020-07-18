@@ -1,0 +1,94 @@
+/**
+ * Site header
+ */
+
+.site-header {
+  @extend %clearfix;
+  background: #222; //#4c4c4c
+  opacity: 0.8;
+  //position: relative;
+}
+
+.site-nav {
+  @extend %clearfix;
+  //border: 1px solid red;
+}
+
+a.nav-page-link {
+  float: right;
+  font-size: r-banner-height(0.3); //r-font-size(1.2);
+  height: $banner-height;
+  width: r-banner-height(1.8); 
+  line-height: $banner-height;
+
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff; // $text-color;
+  margin: 0;
+  padding: 0;
+
+  //border: 1px solid red;
+
+  &:hover, &:active {
+    //color: black;
+    background-color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    //border: 2px solid #f5f5f5;
+  }
+
+// Removing the whitespace(gap) between inline-block elements(.nav-page-link)
+  &:not(:first-child) {
+    margin-left: -4px;
+  }
+}
+
+@include media-query($on-palm) {
+  a.nav-page-link {
+    font-size: r-banner-height-w(0.4);
+    height: $banner-height-w;
+    width: r-banner-height-w(1.8);
+    line-height: $banner-height-w;
+    //border: 1px solid red;
+  }
+}
+
+
+.site-title {
+  float: left;
+  margin: 0 0 0 r-banner-height(0.4);
+  box-sizing: border-box;
+  height: $banner-height;
+  line-height: $banner-height;
+  vertical-align: middle;
+  letter-spacing: -1px;
+  font-size: r-banner-height(0.58); //r-font-size(1.625);
+  font-weight: 600;
+  color: #fff;  
+
+  //border: 1px solid red;
+
+  &:link, &:visited {
+    color: #fff;
+  }
+  &:hover, &:active  {
+    color: #fff; 
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+}
+
+@include media-query($on-palm) {
+  .site-title {
+    margin: 0 0 0 r-banner-height-w(0.35);
+    font-size: r-banner-height-w(0.49); 
+    height: $banner-height-w;
+    line-height: $banner-height-w;
+    //border: 1px solid red;
+  }
+}
+
+

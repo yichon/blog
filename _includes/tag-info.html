@@ -1,0 +1,5 @@
+{% comment %} create a name-value pair map `tag_info` {% endcomment %}
+{% assign tag_info = nil %}
+{% for meta in site.metas %}
+  {% if meta.name == "tags" %} {% assign tag_info = meta %} {% break %} {% endif %}
+{% endfor %}

@@ -1,0 +1,218 @@
+
+html, body {
+   height: 100%;
+   //letter-spacing: 1px;
+   font-stretch: expanded;
+   font-size: $base-font-size;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, dl, dd, ol,
+ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid lightgrey; 
+    margin: 2em 0;
+    padding: 0; 
+}
+
+
+::-moz-selection { /* Code for Firefox */
+  color: #fff;
+  background: #f2855a; //#f07746; //
+}
+
+::selection {
+  color: #fff;
+  background: #f2855a; //#f07746; //
+}
+
+/**
+ * Basic styling
+ */
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+     -moz-font-feature-settings: "kern" 1;
+       -o-font-feature-settings: "kern" 1;
+          font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  
+}
+
+
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $base-spacing / 2;
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  margin: 10px auto;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.center {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block;
+}
+
+figcaption, .post-footnote-tag {
+  font-size: $small-font-size;
+  color: $grey-color-dark;
+  padding-bottom: 10px;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: $base-spacing;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+/**
+ * Table
+ */
+table.info {
+  max-width: 100%;
+  border-top: 2px solid $grey-color;
+  border-bottom: 2px solid $grey-color;
+  margin: 20px auto;
+  font-size: 90%;
+
+  th, td {
+    padding: 2px 6px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    text-align: center;
+    border-bottom: 1px solid $grey-color-light;
+  }
+}
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $base-font-weight;
+}
+
+
+
+/**
+ * Links
+ */
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:visited {
+    color: $link-color-visited;
+  }
+
+  &:active {
+    color: $link-color-active;
+  }
+
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: underline;
+  }
+
+  .social-media-list &:hover {
+    text-decoration: none;
+
+    .username {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: #555;
+  border: 1px solid $grey-color-light;
+  border-left: 4px solid #bbb;
+  padding: 10px;
+  width: 75%;
+  margin: r-font-size(0.8) auto r-font-size(0.8) auto;
+  padding-left: 25px;
+  font-size: r-font-size(0.9);
+  font-style: italic;
+  background: #fff; //#f5f5f5;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+
+}
+
+
+
+/**
+ * Icons
+ */
+.icon > svg {
+  display: inline-block;
+  vertical-align: middle;
+
+  path {
+    fill: $grey-color;
+  }
+}
+
+.social-media-list {
+  .icon {
+    padding-right: 5px;
+  }
+
+  li + li {
+    padding-top: 5px;
+  }
+}
