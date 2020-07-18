@@ -42,7 +42,7 @@ border-left: 1px solid #000;
 
 // Removing the whitespace(gap) between inline-block elements(.nav-page-link)
   &:not(:first-child) {
-    margin-left: -4px;
+    margin-left: 0px; // -4px;
   }
 }
 
