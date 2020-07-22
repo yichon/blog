@@ -114,10 +114,10 @@ layout: default
   <nav class="page-navigation">
     {% if page.hidden == true %}          {% comment %} hidden posts using the regular method `page.previous.url` and `page.next.url`  {% endcomment %}
       {% if page.previous.url %}
-         <a class="older" href="{{page.previous.url | relative_url}}">&larr;(previous)^ {{page.previous.title}}</a>
+         <a class="older" href="{{page.previous.url | relative_url}}">(previous)^ {{page.previous.title}}</a>
       {% endif %}
       {% if page.next.url %}
-         <a class="newer" href="{{page.next.url | relative_url}}">{{page.next.title}}  ^(next)&rarr;</a>
+         <a class="newer" href="{{page.next.url | relative_url}}">{{page.next.title}} ^(next)</a>
       {% endif %}
     {% else %}                            {% comment %} for visible posts {% endcomment %}
       {% assign prev = nil %}
@@ -136,16 +136,16 @@ layout: default
         {% endif %}
         {% if current.url == page.url and flag == 0 %}               {% comment %} in case of `flag == 1` pointers are not moving because of hidden posts {% endcomment %}
           {% if prev != nil %}
-            <a class="newer" href="{{prev.url | relative_url}}">{{prev.title}} (next)&rarr;</a>
+            <a class="newer" href="{{prev.url | relative_url}}">{{prev.title}} (next)</a>
           {% endif %}
           {% if next != nil %}
-            <a class="older" href="{{next.url | relative_url}}">&larr;(previous) {{next.title}}</a>
+            <a class="older" href="{{next.url | relative_url}}">(previous) {{next.title}}</a>
           {% endif %}
           {% assign flag = 1 %}
         {% endif %}
       {% endfor %}
       {% if next != nil and next.url == page.url and current != nil %}                              {% comment %} pointers hit the boundary {% endcomment %}
-        <a class="newer" href="{{current.url | relative_url}}">{{current.title}} $(next)&rarr;</a>
+        <a class="newer" href="{{current.url | relative_url}}">{{current.title}} $(next)</a>
       {% endif %}
     {% endif %}
 
