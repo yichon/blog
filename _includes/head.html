@@ -77,7 +77,6 @@
     <!-- end of open graph meta -->
 
 
-
     <!-- Twitter cards -->
     <meta name="twitter:site" content="@{{ site.twitter_username }}">
     {% if site.author %}<meta name="twitter:creator" content="{{ site.author }}">{% endif %}
@@ -95,7 +94,9 @@
     {% endif %}
     <!-- end of Twitter cards -->
 
-
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    {% if page.mathjs == true %}<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>{% endif %}
 
     <!-- Google Analytics -->
     <script>
@@ -108,11 +109,4 @@
     ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->
-
-
-
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-    {% if page.mathjs == true %}<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>{% endif %}
-    
 </head>
