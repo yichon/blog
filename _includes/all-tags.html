@@ -30,13 +30,14 @@
     {% endfor %}
 
     {% comment %} Note that tags with 0 posts still visible (to completely filter, add "if count != 0 ...") {% endcomment %}
+
     {% if tag[0] contains '_' %}
       {% assign tag_attrs_array = tag[0] | split:'_' %}
-         {% if tag_attrs_array.size > 1 and tag_attrs_array[1] == "tag" %}
-             {{ count | plus: 1000 }}#{{ tag_attrs_array[0] }}#{{ count }}
-         {% endif %}
+      {% if tag_attrs_array.size > 1 and tag_attrs_array[1] == "tag" %}
+         {{ count | plus: 1000 }}#{{ tag_attrs_array[0] }}#{{ count }}#{{ tag[0] }}
+      {% endif %}
     {% else %} 
-       {{ count | plus: 1000 }}#{{ tag[0] }}#{{ count }}
+      {{ count | plus: 1000 }}#{{ tag[0] }}#{{ count }}
     {% endif %}
 
     {% assign count = 0 %}
@@ -50,7 +51,8 @@
   {% for temp_tag in site_tags_array %}
     {% assign tag_attrs = temp_tag | split: '#' %}
       {% capture tag_name %}{{ tag_attrs[1] }}{% endcapture %}
-      <a class="post-tag tag-candidate" href="/blog/tag/{{ tag_attrs[1] }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_attrs[1] }} ({{ tag_attrs[2] }})</a>
+      {% capture link_tag_name %}{{ tag_attrs[3] | default: tag_attrs[1] }}{% endcapture %}
+      <a class="post-tag tag-candidate" href="/blog/tag/{{ link_tag_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_attrs[1] }} ({{ tag_attrs[2] }})</a>
   {% endfor %}
   </div>
 </div>
