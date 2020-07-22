@@ -5,7 +5,7 @@ series: playlist
 ---
 {% comment %}
 {% for list in site.series %}
-  <a href="/blog/{{ list.url }}">{{ list.title }}&nbsp;</a>
+  <a href="{{ site.baseurl }}/{{ list.url }}">{{ list.title }}&nbsp;</a>
 {% endfor %}
 {% endcomment %}
 

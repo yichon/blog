@@ -31,7 +31,7 @@
   {% for temp_category in site_categories_array %}
     {% assign category_attrs = temp_category | split: '#' %}
       {% capture category_name %}{{ category_attrs[1] }}{% endcapture %}
-      <a class="post-tag tag-candidate" href="/blog/category/{{ category_attrs[1] }}" {% if category_info and category_info[category_name] %} title="{{ category_info[category_name] }}" {% endif %}>{{ category_attrs[1]}} ({{ category_attrs[2] }})</a>
+      <a class="post-tag tag-candidate" href="{{ site.baseurl }}/category/{{ category_attrs[1] }}" {% if category_info and category_info[category_name] %} title="{{ category_info[category_name] }}" {% endif %}>{{ category_attrs[1]}} ({{ category_attrs[2] }})</a>
   {% endfor %}
   </div>
 </div>

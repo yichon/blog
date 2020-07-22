@@ -3,7 +3,7 @@ title                : Yichong's Notes
 author               : Joe Yichong
 email                : yichong.joe [at] gmail.com
 description          : A tech blog
-baseurl              : /blog
+baseurl              : /blog   # leave it empty if no sub-directory needed, do not use "/"
 url                  : "https://joeyichong.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 ##permalink            :date
 permalink            : /:year/:month/:day

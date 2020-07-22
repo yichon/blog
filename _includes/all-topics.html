@@ -16,7 +16,7 @@
     {% assign topic_attrs = temp_topic | split: '#' %}
     {% assign topic_name = topic_attrs[1] | split: '_' %}
     {% capture topic_name_str %}{{ topic_name[0] }}{% endcapture %}
-      <a class="post-tag tag-candidate" href="/blog/tag/topic/{{ topic_attrs[1] }}" {% if topic_info and topic_info[topic_name_str] %} title="{{ topic_info[topic_name_str] }}" {% endif %}>{{ topic_name[0] }} ({{ topic_attrs[2] }})</a>
+      <a class="post-tag tag-candidate" href="{{ site.baseurl }}/tag/topic/{{ topic_attrs[1] }}" {% if topic_info and topic_info[topic_name_str] %} title="{{ topic_info[topic_name_str] }}" {% endif %}>{{ topic_name[0] }} ({{ topic_attrs[2] }})</a>
     </span>
   {% endfor %}
   </div>

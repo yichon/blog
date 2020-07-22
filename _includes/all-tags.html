@@ -52,7 +52,7 @@
     {% assign tag_attrs = temp_tag | split: '#' %}
       {% capture tag_name %}{{ tag_attrs[1] }}{% endcapture %}
       {% capture link_tag_name %}{{ tag_attrs[3] | default: tag_attrs[1] }}{% endcapture %}
-      <a class="post-tag tag-candidate" href="/blog/tag/{{ link_tag_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_attrs[1] }} ({{ tag_attrs[2] }})</a>
+      <a class="post-tag tag-candidate" href="{{ site.baseurl }}/tag/{{ link_tag_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_attrs[1] }} ({{ tag_attrs[2] }})</a>
   {% endfor %}
   </div>
 </div>

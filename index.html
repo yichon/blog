@@ -36,13 +36,13 @@ type: index
                   {% if temp_tag.size > 1 and temp_tag[1] == "tag" %}
                     {% capture tag_name %}{{ temp_tag[0] }}{% endcapture %}
                     {% capture tag_link_name %}{{ tag }}{% endcapture %}
-                    <a class="post-tag" href="/blog/tag/{{ tag_link_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_name }}&nbsp;</a>
+                    <a class="post-tag" href="{{ site.baseurl }}/tag/{{ tag_link_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_name }}&nbsp;</a>
                   {% endif %}
 
                 {% else %} 
 
                   {% capture tag_name %}{{ tag }}{% endcapture %}
-                  <a class="post-tag" href="/blog/tag/{{ tag_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_name }}&nbsp;</a>
+                  <a class="post-tag" href="{{ site.baseurl }}/tag/{{ tag_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_name }}&nbsp;</a>
 
                 {% endif %}
 
@@ -80,7 +80,7 @@ type: index
                   {% if temp_tag.size > 1 and temp_tag[1] == "label" %}
                     {% capture label_name %}{{ temp_tag[0] }}{% endcapture %}
                     {% capture label_link_name %}{{ tag }}{% endcapture %}
-                    <a class="footnote-label" href="/blog/tag/label/{{ label_link_name }}" {% if label_info and label_info[label_name] %} title="{{ label_info[label_name] }}" {% endif %}>{{ label_name }}&nbsp;</a>
+                    <a class="footnote-label" href="{{ site.baseurl }}/tag/label/{{ label_link_name }}" {% if label_info and label_info[label_name] %} title="{{ label_info[label_name] }}" {% endif %}>{{ label_name }}&nbsp;</a>
                   {% endif %}
                 {% endfor %}
               {% else %}
@@ -100,7 +100,7 @@ type: index
                   {% if temp_tag.size > 1 and temp_tag[1] == "topic" %}
                     {% capture topic_name %}{{ temp_tag[0] }}{% endcapture %}
                     {% capture topic_link_name %}{{ tag }}{% endcapture %}
-                    <a class="footnote-topic" href="/blog/tag/topic/{{ topic_link_name }}" {% if topic_info and topic_info[topic_name] %} title="{{ topic_info[topic_name] }}" {% endif %}>{{ topic_name }}&nbsp;</a>
+                    <a class="footnote-topic" href="{{ site.baseurl }}/tag/topic/{{ topic_link_name }}" {% if topic_info and topic_info[topic_name] %} title="{{ topic_info[topic_name] }}" {% endif %}>{{ topic_name }}&nbsp;</a>
                   {% endif %}
                 {% endfor %}
               {% else %}
@@ -117,7 +117,7 @@ type: index
             <span class="footnote-category-pre">Category:&nbsp; </span>
               {% for category in post.categories %}
                 {% capture category_name %}{{ category }}{% endcapture %}
-                <a class="footnote-category" href="/blog/category/{{ category }}" {% if category_info and category_info[category_name] %} title="{{ category_info[category_name] }}" {% endif %}>{{ category }}&nbsp;</a>
+                <a class="footnote-category" href="{{ site.baseurl }}/category/{{ category }}" {% if category_info and category_info[category_name] %} title="{{ category_info[category_name] }}" {% endif %}>{{ category }}&nbsp;</a>
               {% endfor %}
             </span>
         {% else %}
