@@ -4,6 +4,7 @@ title:  "A quick review of some handy features in Jekyll"
 date:  2020-07-21T11:19:00+08:00
 tags: ["Jekyll", "review_label"]
 categories: ["Programming", "Webpage"]
+keywords: Liquid site.tags site.categories
 ---
 
 > This post is a summary of my initial blog building. 
@@ -47,7 +48,9 @@ Note:
 
 `.first` or `.last` can be used to access the first or last array element. 
 
-`.size` can be used to get the number of elements in an array or an *[object](#object-and-list)*.
+`.size` can be used to get the number of elements in an array or *[object](#object-and-list)*. 
+
+In the case of a string, `.size` will return the number of characters.
 
 
 
@@ -194,6 +197,37 @@ Note that the default value of undefined or unassigned custom variables in the a
  - `site.collections` A **list** of all the collections (including posts).
 
 <br>
+*All the custom site variables set via `_config.yml` are available through the site variable.*
+
+
+*For more site Variables, see &nbsp;[Jekyll Docs - Variables][1]*
+
+
+### Variables in the Page Scope Object
+To print out all the page variables in the first post: 
+{%- raw -%}
+```
+{% for post in site.posts %}
+  {% for item in post %}
+    {{ item }}
+  {% endfor %}
+  {% break %}
+{% endfor %}
+```
+{% endraw %}
+
+The result:
+
+`relative_path` `excerpt` `previous` `title` `categories` `collection` `url`
+ `content` `id` `output` `date` `next` `tags` `path` `draft` `slug` `ext` `layout`
+
+(Note that custom variables in the page object are not included in the result)
+
+*More infomation about page variables, see [Jekyll Docs - Variables][1]*
+
+
+### site.tags and site.categories
+
 Note that as of version '4.1.1', Jekyll automatically fills the `site.tags` without user intervention with tags used in at least one post. 
 Each tag property in the `site.tags` object points to a list of posts that contain it. 
 However, it doesn't count in the tags in other non-posts collections. `site.categories` dittoes.
@@ -220,34 +254,34 @@ Access the values in `site.categories` object:
 {{ site.categories["my"][0].title }}
 ```
 {% endraw %}
-<br>
-
-*All the custom site variables set via `_config.yml` are available through the site variable.*
 
 
-*For more site Variables, see &nbsp;[Jekyll Docs - Variables][1]*
+However, when you loop through `site.tags` or `site.categories`, it will return an array(not property key) with two elements every time. 
+The first element is the tag name or category name. The second element is a list of corresponding posts. 
 
-### Variables in the Page Scope Object
-To print out all the page variables in the first post: 
 {%- raw -%}
 ```
-{% for post in site.posts %}
-  {% for item in post %}
-    {{ item }}
-  {% endfor %}
+{% for tag in site.tags %}
+  {{ tag[0] }} / {{ tag[1].size }}
+  {% break %}
+{% endfor %}
+
+{% for tag in site.tags %}
+  {{ tag.size }}
   {% break %}
 {% endfor %}
 ```
 {% endraw %}
 
-The result:
-
-`relative_path` `excerpt` `previous` `title` `categories` `collection` `url`
- `content` `id` `output` `date` `next` `tags` `path` `draft` `slug` `ext` `layout`
-
-(Note that custom variables in the page object are not included in the result)
-
-*More infomation about page variables, see [Jekyll Docs - Variables][1]*
+This is inconsistent with the behavior of other "objects". e.g., the following code failed:
+{%- raw -%}
+```
+{% for item in site %}
+  {{ item[0] }} / {{ item[1] }}
+  {% break %}
+{% endfor %}
+```
+{% endraw %}
 
 
 ## Custom Array and Object
@@ -303,13 +337,48 @@ cat2: category two
 
 4 . Use {% raw %}{% include %}{% endraw %} to extract the "string map" from custom collection `site.metas`.
 {%- raw -%}
-
 ```
 {% include category-info.html %}
 {% if category_info and category_info[page.category] %}<p>({{ category_info[page.category] }})</p>{% endif %}
 ```
 {% endraw %}
 
+<br>
+Note that you are not supposed to loop through this "string map" using {% raw %}`{% for %}`{% endraw %} statement because there are also multiple built-in variables inside the "string map".
+
+### Nested Square Bracket Operator
+
+Another problem is that nested square bracket operator are not supported in Jekyll.
+
+e.g., if you execute {% raw %}`{{ site.metas[0]["name"] }}`{% endraw %}, it will output `categories` as we defined above in step 2.
+
+
+But the following code won't work:
+{% raw %}
+```
+{% assign arr = "name|title" | split: "|" %}
+{{ site.metas[0][arr[0]] }}
+```
+{% endraw %}
+
+To fix this problem, you need to dismantle the nested square brackets:
+{% raw %}
+```
+{% assign arr = "name|title" | split: "|" %}
+{% assign temp = arr[0] %}
+{{ site.metas[0][temp] }}
+```
+{% endraw %}
+
+or
+
+{% raw %}
+```
+{% assign arr = "name|title" | split: "|" %}
+{% capture key %}{{ arr[0] }}{% endcapture %}
+{{ site.metas[0][key] }}
+```
+{% endraw %}
 
 
 ## Others
