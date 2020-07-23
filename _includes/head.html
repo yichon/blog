@@ -59,6 +59,11 @@
         {% assign keywords = keywords | append: " " | append:category %}
       {% endfor %}
     {% endif %}
+
+    {% if page.keywords %}
+      {% assign keywords = keywords | append: " " | append: page.keywords %}
+    {% endif %}
+
     {% assign kw_arr = keywords | strip_html | strip | split:" " %}
     {% for kw in kw_arr %}
       <meta property="article:tag" content="{{ kw }}">
