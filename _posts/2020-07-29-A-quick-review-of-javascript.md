@@ -427,7 +427,7 @@ The code inside curly braces `{}` is parsed as a sequence of statements.
 (i.e. `foo` is treated like a label, not a key in an object literal).
 
 
- - Parsing Ossrder
+ - Parsing Order
 
 ```javascript
 callback = callback || () => {};      // SyntaxError: invalid arrow-function arguments
