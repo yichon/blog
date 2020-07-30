@@ -16,9 +16,7 @@ To better understand some features, it interprets them using some javascript con
 
 <br>
 
-{: class="table-of-content"}
-* TOC
-{:toc}
+{% include toc.html %}
 
 
 

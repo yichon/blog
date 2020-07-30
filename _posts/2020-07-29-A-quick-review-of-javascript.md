@@ -13,9 +13,8 @@ This post mainly focuses on the core concepts and critical details in Javascript
 <!--more-->
 
 
-{: class="table-of-content"}
-* TOC
-{:toc}
+{% include toc.html %}
+
 
 ## Basics
 
