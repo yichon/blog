@@ -6,7 +6,7 @@ description          : A tech blog
 baseurl              : /blog   # leave it empty if no sub-directory needed, do not use "/"
 url                  : "https://joeyichong.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 ##permalink            :date
-permalink            : /:year/:month/:day
+permalink            : /:year/:month/:day/:title
 #paginate_path       : /page:num
 timezone             : Africa/Abidjan 
 port                 : 9002
