@@ -2,6 +2,7 @@
 name: categories
 cat1: category one
 cat2: category two
+my: My Test
 ---
 
 <style type="text/css" media="screen">
