@@ -844,17 +844,21 @@ $$
 
 ### List of mathematical symbols
 
+[List of mathematical symbols][4]
 
-
----
 
 ### references
 
-<a name="latex-mathematics"></a>\[1\]. [LaTeX Mathematics][1]
 
-<a name="latex-mathematics"></a>\[2\]. [MathJax basic tutorial and quick reference][2]
+\[1\]. [LaTeX Mathematics][1]
+{: id="ref-latex-mathematics" class="ref-item" }
 
-<a name="latex-mathematics"></a>\[3\]. [How to left-align entries in a matrix][3]
+\[2\]. [MathJax basic tutorial and quick reference][2]
+{: id="ref-mathjax-basic-tutorial-and-quick-reference" class="ref-item" }
+
+\[3\]. [How to left-align entries in a matrix][3]
+{: id="ref-how-do-i-left-align-entries-in-a-matrix" class="ref-item" }
+
 
 
 
@@ -863,6 +867,8 @@ $$
 [2]: https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference  "MathJax basic tutorial and quick reference"
 
 [3]: https://tex.stackexchange.com/questions/45001/how-do-i-left-align-entries-in-a-matrix-with-beginmatrix  "How to left-align entries in a matrix"
+
+[4]: https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_mathematical_symbols  "List of mathematical symbols"
 
 
 

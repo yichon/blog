@@ -1376,93 +1376,136 @@ class Bar extends calculatorMixin(randomizerMixin(Foo)) { }
 
 
 
-## References & Resources
+## References & Resources  {#references}
 
-<a name="mdn-javaScript-docs"></a>*\[1\]. [MDN JavaScript Docs][1]*
+*\[1\]. [MDN JavaScript Docs][1]*
+{: id="ref-mdn-javaScript-docs" class="ref-item" }
 
-<a name="mdn-details-of-the-object-model"></a>*\[2\]. [Details of the Object Model][2]*
+*\[2\]. [Details of the Object Model][2]*
+{: id="ref-mdn-details-of-the-object-model" class="ref-item" }
 
-<a name="mdn-javaScript-classes"></a>*\[3\]. [JavaScript Classes][3]*
+*\[3\]. [JavaScript Classes][3]*
+{: id="ref-mdn-javaScript-classes" class="ref-item" }
 
-<a name="w3schools-es-6"></a>*\[4\]. [ECMAScript 6 - ECMAScript 2015][4]*
+*\[4\]. [ECMAScript 6 - ECMAScript 2015][4]*
+{: id="ref-w3schools-es-6" class="ref-item" }
 
-<a name="mdn-prototype-based-programming"></a>*\[5\]. [Prototype-based Programming][5]*
+*\[5\]. [Prototype-based Programming][5]*
+{: id="ref-mdn-prototype-based-programming" class="ref-item" }
 
-<a name="mdn-object-initializer"></a>*\[6\]. [Object Initializer][6]*
+*\[6\]. [Object Initializer][6]*
+{: id="ref-mdn-object-initializer" class="ref-item" }
 
-<a name="mdn-object-class"></a>*\[7\]. [Object Class][7]*
+*\[7\]. [Object Class][7]*
+{: id="ref-mdn-object-class" class="ref-item" }
 
-<a name="w3schools-javaScript-tutorial"></a>*\[8\]. [JavaScript Tutorial][8]*
+*\[8\]. [JavaScript Tutorial][8]*
+{: id="ref-w3schools-javaScript-tutorial" class="ref-item" }
 
-<a name="stackoverflow-constructor-isnt-an-object"></a>*\[9\]. [How objects are created when the prototype of their constructor isnt an object?][9]*
+*\[9\]. [How objects are created when the prototype of their constructor isnt an object?][9]*
+{: id="ref-stackoverflow-constructor-isnt-an-object" class="ref-item" }
 
-<a name="stackoverflow-how-do-objects-created"></a>*\[10\]. [How objects are created?][10]*
+*\[10\]. [How objects are created?][10]*
+{: id="ref-stackoverflow-how-do-objects-created" class="ref-item" }
 
-<a name="w3schools-javajcript-use-strict"></a>*\[11\]. [JavaScript Use Strict][11]*
+*\[11\]. [JavaScript Use Strict][11]*
+{: id="ref-w3schools-javajcript-use-strict" class="ref-item" }
 
-<a name="mdn-function-expression"></a>*\[12\]. [Function Expression][12]*
+*\[12\]. [Function Expression][12]*
+{: id="ref-mdn-function-expression" class="ref-item" }
 
-<a name="creating-javascript-modules"></a>*\[13\]. [Creating Javascript Modules][13]*
+*\[13\]. [Creating Javascript Modules][13]*
+{: id="ref-creating-javascript-modules" class="ref-item" }
 
-<a name="wikipedia-Scope-computer-science"></a>*\[14\]. [Scope_(computer_science][14]*
+*\[14\]. [Scope_(computer_science][14]*
+{: id="ref-wikipedia-Scope-computer-science" class="ref-item" }
 
-<a name="mdn-creating-closures-in-loops"></a>*\[15\]. [Creating closures in loops][15]*
+*\[15\]. [Creating closures in loops][15]*
+{: id="ref-mdn-creating-closures-in-loops" class="ref-item" }
 
-<a name="mdn-arrow-functions"></a>*\[16\]. [Arrow Functions][16]*
+*\[16\]. [Arrow Functions][16]*
+{: id="ref-mdn-arrow-functions" class="ref-item" }
 
-<a name="mdn-functions"></a>*\[17\]. [Functions][17]*
+*\[17\]. [Functions][17]*
+{: id="ref-mdn-functions" class="ref-item" }
 
-<a name="stackoverflow-javascript-return-by-value"></a>*\[18\]. [Javascript Return by Value][18]*
+*\[18\]. [Javascript Return by Value][18]*
+{: id="ref-stackoverflow-javascript-return-by-value" class="ref-item" }
 
-<a name="mdn-object-tosource"></a>*\[19\]. [Object toSource][19]*
+*\[19\]. [Object toSource][19]*
+{: id="ref-mdn-object-tosource" class="ref-item" }
 
-<a name="stackoverflow-padding-zeros"></a>*\[20\]. [Padding Zeros][20]*
+*\[20\]. [Padding Zeros][20]*
+{: id="ref-stackoverflow-padding-zeros" class="ref-item" }
 
-<a name="mdn-for-of"></a>*\[21\]. [for...of][21]*
+*\[21\]. [for...of][21]*
+{: id="ref-mdn-for-of" class="ref-item" }
 
-<a name="mdn-json"></a>*\[22\]. [JSON][22]*
+*\[22\]. [JSON][22]*
+{: id="ref-mdn-json" class="ref-item" }
 
-<a name="stackoverflow-tostring-vs-stringify"></a>*\[23\]. [toString vs. stringify][23]*
+*\[23\]. [toString vs. stringify][23]*
+{: id="ref-stackoverflow-tostring-vs-stringify" class="ref-item" }
 
-<a name="w3schools-ajax-http-response"></a>*\[24\]. [Ajax http response][24]*
+*\[24\]. [Ajax http response][24]*
+{: id="ref-w3schools-ajax-http-response" class="ref-item" }
 
-<a name="mozilla-web-workers-api"></a>*\[25\]. [Web Workers API][25]*
+*\[25\]. [Web Workers API][25]*
+{: id="ref-mozilla-web-workers-api" class="ref-item" }
 
-<a name="mozilla-web-workers-api"></a>*\[26\]. [WebSockets API][26]*
+*\[26\]. [WebSockets API][26]*
+{: id="ref-mozilla-web-workers-api" class="ref-item" }
 
-<a name="mozilla-comma-operator"></a>*\[27\]. [Comma Operator][27]*
+*\[27\]. [Comma Operator][27]*
+{: id="ref-mozilla-comma-operator" class="ref-item" }
 
-<a name="stackoverflow-difference-between-decodeuricomponent-and-decodeuri"></a>*\[28\]. [The difference between decodeuricomponent() and decodeuri()][28]*
+*\[28\]. [The difference between decodeuricomponent() and decodeuri()][28]*
+{: id="ref-stackoverflow-difference-between-decodeuricomponent-and-decodeuri" class="ref-item" }
 
-<a name="stackoverflow-memory-management-of-javascript-array"></a>*\[29\]. [Memory Management of Javascript Array][29]*
+*\[29\]. [Memory Management of Javascript Array][29]*
+{: id="ref-stackoverflow-memory-management-of-javascript-array" class="ref-item" }
 
-<a name="common-pitfalls-when-working-with-javascript-arrays"></a>*\[30\]. [Common Pitfalls When Working With Javascript Arrays][30]*
+*\[30\]. [Common Pitfalls When Working With Javascript Arrays][30]*
+{: id="ref-common-pitfalls-when-working-with-javascript-arrays" class="ref-item" }
 
-<a name="w3schools-js-html-dom"></a>*\[31\]. [JavaScript HTML DOM][31]*
+*\[31\]. [JavaScript HTML DOM][31]*
+{: id="ref-w3schools-js-html-dom" class="ref-item" }
 
-<a name="mdn-document-object"></a>*\[32\]. [Document Object][32]*
+*\[32\]. [Document Object][32]*
+{: id="ref-mdn-document-object" class="ref-item" }
 
-<a name="mdn-element-object"></a>*\[33\]. [Element Object][33]*
+*\[33\]. [Element Object][33]*
+{: id="ref-mdn-element-object" class="ref-item" }
 
-<a name="mdn-events"></a>*\[34\]. [Events][34]*
+*\[34\]. [Events][34]*
+{: id="ref-mdn-events" class="ref-item" }
 
-<a name="w3schools-js-browser-bom"></a>*\[35\]. [JS Browser BOM][35]*
+*\[35\]. [JS Browser BOM][35]*
+{: id="ref-w3schools-js-browser-bom" class="ref-item" }
 
-<a name="mdn-window"></a>*\[36\]. [JS Window][36]*
+*\[36\]. [JS Window][36]*
+{: id="ref-mdn-window" class="ref-item" }
 
-<a name="mdn-date"></a>*\[37\]. [Global Object Date][37]*
+*\[37\]. [Global Object Date][37]*
+{: id="ref-mdn-date" class="ref-item" }
 
-<a name="mdn-math"></a>*\[38\]. [Global Object Math][38]*
+*\[38\]. [Global Object Math][38]*
+{: id="ref-mdn-math" class="ref-item" }
 
-<a name="mdn-regexp"></a>*\[39\]. [Global Object RegExp][39]*
+*\[39\]. [Global Object RegExp][39]*
+{: id="ref-mdn-regexp" class="ref-item" }
 
-<a name="mdn-error"></a>*\[40\]. [Global Object Error][40]*
+*\[40\]. [Global Object Error][40]*
+{: id="ref-mdn-error" class="ref-item" }
 
-<a name="w3schools-jsonp"></a>*\[41\]. [JS JSONP][41]*
+*\[41\]. [JS JSONP][41]*
+{: id="ref-w3schools-jsonp" class="ref-item" }
 
-<a name="chapter-6-closures"></a>*\[42\]. [Chapter-6-Closures][42]*
+*\[42\]. [Chapter-6-Closures][42]*
+{: id="ref-chapter-6-closures" class="ref-item" }
 
-<a name="stackoverflow-closures-on-heap-or-stack"></a>*\[43\]. [Javascript closures on heap or stack][43]*
+*\[43\]. [Javascript closures on heap or stack][43]*
+{: id="ref-stackoverflow-closures-on-heap-or-stack" class="ref-item" }
 
 
 [1]: <https://developer.mozilla.org/en-US/docs/Web/JavaScript>  "MDN JavaScript Docs"

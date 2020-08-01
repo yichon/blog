@@ -32,6 +32,8 @@ mathjs: true
 
 *This jumps to reference.* [[1]](#jekyll-docs)
 
+*This jumps to reference.* [[2]](#ref-jekyll-gh)
+
 ### ❯ Font Color
 
 <p><font style="color:red">This is red color text.</font></p>
@@ -230,6 +232,9 @@ This is some text not written in HTML but in another language!
 *[HTML]: HyperTextMarkupLanguage
 {:.mega-big}
 
+<span class="tips" tilte="How are you?">hello</span>
+
+
 ### Comment (kramdown)
 ```
 {::comment}
@@ -260,8 +265,10 @@ Do you see {::comment}this text{:/comment}?
 ## ❯ Link {#references}
 
 <a name="jekyll-docs"></a>\[1\]. [Jekyll Docs][jekyll-docs]
+{: class="ref-item" }
 
-
+\[2\]. [Jekyll GH][jekyll-gh] 
+{: id="ref-jekyll-gh" class="ref-item" }
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll

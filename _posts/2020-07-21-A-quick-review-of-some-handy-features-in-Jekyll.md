@@ -406,25 +406,34 @@ Set `baseurl` in `_config.yml` to your repository name  if your repository name 
 <br>
 <font style="font-size: 12px;font-style: italic">(Note that all the Jekyll features discussed in this post are based on Jekyll Version 4.1.1, there may be changes made in the future version of Jekyll)</font>
 
-## References & Resources
+## References & Resources  {#references}
 
-<a name="jekyll-docs-variables"></a>*\[1\]. [Jekyll Docs - Variables][1]*
+*\[1\]. [Jekyll Docs - Variables][1]*
+{: id="ref-jekyll-docs-variables" class="ref-item" }
 
-<a name="shopify-cheat-sheet"></a>*\[2\]. [Shopify Cheat Sheet][2]*
+*\[2\]. [Shopify Cheat Sheet][2]*
+{: id="ref-shopify-cheat-sheet" class="ref-item" }
 
-<a name="liquid-basics"></a>*\[3\]. [Liquid Basics][3]*
+*\[3\]. [Liquid Basics][3]*
+{: id="ref-liquid-basics" class="ref-item" }
 
-<a name="liquid-for-designers"></a>*\[4\]. [Liquid for Designers][4]*
+*\[4\]. [Liquid for Designers][4]*
+{: id="ref-liquid-for-designers" class="ref-item" }
 
-<a name="shopify-liquid-tutorial"></a>*\[5\]. [Shopify Liquid Tutorial][5]*
+*\[5\]. [Shopify Liquid Tutorial][5]*
+{: id="ref-shopify-liquid-tutorial" class="ref-item" }
 
-<a name="github-jekyll-toc"></a>*\[6\]. [Jekyll Pure Liquid Table of Contents][6]*
+*\[6\]. [Jekyll Pure Liquid Table of Contents][6]*
+{: id="ref-github-jekyll-toc" class="ref-item" }
 
-<a name="a-jekyll-toc-without-plugins-or-javascript"></a>*\[7\]. [A Jekyll TOC without Plugins or JavaScript][7]*
+*\[7\]. [A Jekyll TOC without Plugins or JavaScript][7]*
+{: id="ref-a-jekyll-toc-without-plugins-or-javascript" class="ref-item" }
 
-<a name="date-formatting"></a>*\[8\]. [Date formatting][8]*
+*\[8\]. [Date formatting][8]*
+{: id="ref-date-formatting" class="ref-item" }
 
-<a name="types-of-github-pages-sites"></a>*\[9\]. [Types of Github Pages Sites][9]*
+*\[9\]. [Types of Github Pages Sites][9]*
+{: id="ref-types-of-github-pages-sites" class="ref-item" }
 
 
 [1]: <https://jekyllrb.com/docs/variables/>  "Jekyll Docs - Variables"

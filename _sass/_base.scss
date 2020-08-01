@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-  margin-bottom: $base-spacing / 2;
+  margin-bottom: $base-font-size / 2; // $base-spacing / 4; // / 2 / 3
 }
 
 
@@ -193,7 +193,25 @@ blockquote {
 
 }
 
+/**
+abbr {
+position: relative;
+cursor: default !important;
+text-decoration: none;
+padding: 1px;
+border-bottom: 1px dotted blue;
+}
 
+abbr:hover::after {
+position: absolute;
+bottom: 100%;
+left: 100%;
+display: block;
+padding: 1em;
+background: yellow;
+content: attr(title);
+}
+**/
 
 /**
  * Icons
