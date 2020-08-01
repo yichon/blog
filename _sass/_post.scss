@@ -126,14 +126,15 @@ a.post-tag {
   }
 }
 
-.post-footnote {
+.post-footnote, .list-post-footnote {
   @extend %clearfix;
   display: block;
   border-top: 1px solid $grey-color-light;
-  margin-top: r-font-size(1); // r-size(1); //1vh;
+  margin-top: 0.75em; // r-size(1); //r-font-size(0.7); // r-size(1); //1vh;
   // margin-top: r-font-size(3.6);
   // margin-bottom: r-font-size(3.6);
-  padding-top: r-size(0.5);
+  //padding-top: r-size(0.5);
+  padding-top: 0.38em;
 
   //overflow: auto;
 
@@ -197,6 +198,10 @@ a.post-tag {
     }
   }
   
+}
+
+.post-footnote {
+  margin-top: 1.5em; // r-size(1); //r-font-size(0.7); // r-size(1); //1vh;
 }
 
 
