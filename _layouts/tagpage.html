@@ -12,7 +12,7 @@ layout: default
     {% comment %} Note that site.tags could be accessed by string name/key, corresponding posts with that tag returned as an array {% endcomment %}
     {% for post in site.tags[page.tag] %}       
       {% if post.hidden != true %}              {% comment %} hidden posts filtered {% endcomment %}
-        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="post-link-date">({{ post.date | date_to_string }})</span>
           {{ post.description }}
         </li>
       {% endif %}
