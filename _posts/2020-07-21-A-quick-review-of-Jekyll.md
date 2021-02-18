@@ -8,7 +8,7 @@ keywords: Liquid site.tags site.categories
 ---
 
 > This post is a summary of my initial blog building. 
-It offers some guidance on how to use Jekyll and presents some clues to delve into details. 
+It offers some guidance on how to use Jekyll and some clues to delve into details. 
 To better understand some features, it interprets them using some javascript concepts. 
 
 <!--more-->
