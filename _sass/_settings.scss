@@ -15,13 +15,18 @@ $rosy-brown: darken(#BC8F8F, 20%);
 
 $steelblue: #4682B4; //#396a93 //#386991
 
+// $linkblue: #555; // #1a0dab; // #0645ad;
+// $linkblue-h: #000 // #3676ab;
+
 //$brand-color:           #e0491f !default;
-$crimson-color:         #cc3300; //#cc2900; //#e0491f; //#b32400;
-$crimson-color-light:   #ff3300; //#f9493f;
+$orange-color:  #cc3300; //#cc2900; //#e0491f; //#b32400; // #d1383d
+$orange-color-light:  #ff3300; //#f9493f; // #c02d2e
+// $crimson-color: $orange-color       
+// $crimson-color-light: $orange-color-light
 
 
 // Define defaults for each variable.
-$base-font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;  // "Source Sans Pro", "Open Sans",  "Noto Sans", "Segoe UI", Verdana, Geneva, "Helvetica Neue"
+$base-font-family:  "Noto Sans", "PT Sans", Roboto, Arial, Helvetica, sans-serif  !default;  // "Source Sans Pro", "Segoe UI", Verdana, Geneva, "Open Sans", "Helvetica Neue"
 $base-font-size:   16px !default; //$base-width / 50 !default; 
 $base-font-weight: 400 !default;
 $base-line-height: 1.65 !default;
@@ -43,12 +48,12 @@ $text-color:       #202120; //#111 !default; //#24292e; //
 $background-color: $white-smoke !default; // #fff !default;
 
 
-$link-color:            $crimson-color !default;
-$link-color-hover:      $crimson-color-light;   
-$link-color-active:     $crimson-color !default;
-$link-color-visited:    $crimson-color !default;
-$headline-color:        $crimson-color;
-//$headline-color: $crimson-color;
+$link-color:            $orange-color !default; // $linkblue !default; 
+$link-color-hover:      $orange-color-light;    // $linkblue-h; 
+$link-color-active:     $orange-color !default; // $linkblue !default; 
+$link-color-visited:    $orange-color !default; // $linkblue !default; 
+$headline-color:        $orange-color;          // $linkblue; 
+//$headline-color: $orange-color;
 
 // Note that here '85' means '0.85'
 @function r-size($r) {
