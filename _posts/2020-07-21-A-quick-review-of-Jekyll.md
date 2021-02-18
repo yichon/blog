@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A quick review of some handy features in Jekyll"
+title:  "A quick review of Jekyll"
 date:  2020-07-21T11:19:00+08:00
 tags: ["Jekyll", "review_label"]
 categories: ["Programming", "Webpage"]
