@@ -9,7 +9,7 @@ layout: default
   <ul>
     {% capture _name %}{{ page.topic | append:'_topic' }}{% endcapture %}
     {% for post in site.tags[_name] %}
-      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="post-link-date">({{ post.date | date_to_string }})</span><br>
+      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> <span class="post-link-date">({{ post.date | date: "%Y-%m-%d" }})</span><br>
         {{ post.description }}
       </li>
     {% endfor %}
