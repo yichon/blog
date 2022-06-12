@@ -2,7 +2,7 @@
 layout: post
 title:  "A quick review of Python"
 date:  2021-02-17T20:00:00+08:00
-tags: ["review_label", "hidden_label"]
+tags: ["review_label"]
 categories: ["Programming", "Python"]
 keywords: object-oriented
 author: Yichong Zhou

@@ -2,7 +2,7 @@
 layout: post
 title:  "A quick review of C++"
 date:  2021-04-18T10:29:00+08:00
-tags: ["review_label", "hidden_label"]
+tags: ["review_label"]
 categories: ["Programming", "C++"]
 keywords: object-oriented
 author: Yichong Zhou

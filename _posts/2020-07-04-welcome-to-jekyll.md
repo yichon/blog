@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2020-07-04 16:54:16
-tags: mytest_tag test_label blog-building_topic
+tags: mytest_tag test_label blog-building_topic hidden_label
 categories: my
 hidden: true
 series: playlist 1
