@@ -4,7 +4,7 @@ title:  "Welcome to Jekyll!"
 date:   2020-07-04 16:54:16
 tags: mytest_tag test_label blog-building_topic
 categories: my
-hidden: false
+hidden: true
 series: playlist 1
 comments: true
 ---
