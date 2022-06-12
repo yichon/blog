@@ -1,11 +1,141 @@
-<html>    
-  <head>      
-    <title>Yichong's Notes</title>      
-    <meta http-equiv="refresh" content="0; url=https://yichon.github.io" />    
-  </head>    
-  <body> 
-    <p>
-      This page has moved to <a href="https://yichon.github.io">Yichong's Notes</a>.
-    </p> 
-  </body>  
-</html>     
+---
+layout: default
+type: index
+---
+<div class="content-div">
+  <ul class="post-list">
+    {% assign focus_cats = "|" | append:site.focus_categories | split: " " | join: "|" | append: "|" %}
+    {% for post in site.posts %}
+      {% assign focused  = false %}
+      {% if site.focus_categories == "all" or post.categories == nil or post.categories.size == 0 or site.focus_categories == nil or site.focus_categories == "" %} 
+        {% assign focused  = true %}             {% comment %} `focused = true` by default. Note that `site.focus_categories` returns `nil` if config item removed or has no vlaue {% endcomment %}
+      {% else %}
+        {% for category in post.categories %}
+          {% assign cat = "|" | append: category | append: "|" %}
+          {% if focus_cats contains cat %}
+            {% assign focused  = true %} {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+ 
+      {% if post.hidden != true and focused %}  {% comment %} hidden posts and non-focused posts are filtered {% endcomment %}
+      <li class="post-item">
+
+        <div class="post-meta">
+          <time class="post-meta-date">
+          {{ post.date | date: "%b %-d, %Y" }}
+          </time>
+
+          {% if post.tags.size > 0 and site.show_tags == true %}                        {% comment %} manage the visibility of tags {% endcomment %}
+{% include tag-info.html %}
+{% comment %}<div class="post-meta-tags">{% endcomment %}
+              {% for tag in post.tags %}                                   {% comment %} `post.tags` {% endcomment %}
+                {% if tag contains '_' %} 
+
+                  {% assign temp_tag = tag | split:'_' %}
+                  {% if temp_tag.size > 1 and temp_tag[1] == "tag" %}
+                    {% capture tag_name %}{{ temp_tag[0] }}{% endcapture %}
+                    {% capture tag_link_name %}{{ tag }}{% endcapture %}
+                    <a class="post-tag" href="{{ site.baseurl }}/tag/{{ tag_link_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_name }}&nbsp;</a>
+                  {% endif %}
+
+                {% else %} 
+
+                  {% capture tag_name %}{{ tag }}{% endcapture %}
+                  <a class="post-tag" href="{{ site.baseurl }}/tag/{{ tag_name }}" {% if tag_info and tag_info[tag_name] %} title="{{ tag_info[tag_name] }}" {% endif %}>{{ tag_name }}&nbsp;</a>
+
+                {% endif %}
+
+              {% endfor %}
+{% comment %}</div>{% endcomment %}
+          {% endif %}
+
+        </div>
+
+
+
+        <div class="post-head">
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </div>
+
+        <div class="post-excerpt">
+          {% if post.excerpt %}
+            {{ post.excerpt | replace: "<blockquote>", "" | replace: "</blockquote>", "" | replace: "<script>", "<script>/*" | replace: "</script>", "*/</script>" }}
+          {% endif %}
+        </div>
+
+
+        
+        <div class="list-post-footnote">
+        {% if post.tags.size > 0 %}
+
+          {% if site.show_labels == true %}                                               {% comment %} manage the visibility of labels {% endcomment %}
+{% include label-info.html %}
+            <span class="post-footnote-labels">
+              {% assign post_tags =  post.tags | join:'|' %}
+              {% if post_tags contains '_label' %} 
+                  <span class="footnote-label-pre">Labels:&nbsp; </span>
+                {% for tag in post.tags %}
+                  {% assign temp_tag = tag | split:'_' %}
+                  {% if temp_tag.size > 1 and temp_tag[1] == "label" %}
+                    {% capture label_name %}{{ temp_tag[0] }}{% endcapture %}
+                    {% capture label_link_name %}{{ tag }}{% endcapture %}
+                    <a class="footnote-label" href="{{ site.baseurl }}/tag/label/{{ label_link_name }}" {% if label_info and label_info[label_name] %} title="{{ label_info[label_name] }}" {% endif %}>{{ label_name }}&nbsp;</a>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                  <span class="footnote-label">&nbsp; </span>
+              {% endif %}
+            </span>
+          {% endif %}
+
+          {% if site.show_topics == true %}                                               {% comment %} manage the visibility of topics {% endcomment %}
+{% include topic-info.html %}
+            <span class="post-footnote-topics">
+              {% assign post_tags =  post.tags | join:'|' %}
+              {% if post_tags contains '_topic' %} 
+                  <span class="footnote-topic-pre">Topic:&nbsp; </span>
+                {% for tag in post.tags %}
+                  {% assign temp_tag = tag | split:'_' %}
+                  {% if temp_tag.size > 1 and temp_tag[1] == "topic" %}
+                    {% capture topic_name %}{{ temp_tag[0] }}{% endcapture %}
+                    {% capture topic_link_name %}{{ tag }}{% endcapture %}
+                    <a class="footnote-topic" href="{{ site.baseurl }}/tag/topic/{{ topic_link_name }}" {% if topic_info and topic_info[topic_name] %} title="{{ topic_info[topic_name] }}" {% endif %}>{{ topic_name }}&nbsp;</a>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                  <span class="footnote-topic">&nbsp; </span>
+              {% endif %}
+            </span>
+          {% endif %}
+
+        {% endif %}
+
+        {% if post.categories.size > 0 and site.show_categories == true %}                 {% comment %} manage the visibility of topics {% endcomment %} 
+{% include category-info.html %}
+          <span class="post-footnote-categories">
+            <span class="footnote-category-pre">Category:&nbsp; </span>
+              {% for category in post.categories %}
+                {% capture category_name %}{{ category }}{% endcapture %}
+                <a class="footnote-category" href="{{ site.baseurl }}/category/{{ category }}" {% if category_info and category_info[category_name] %} title="{{ category_info[category_name] }}" {% endif %}>{{ category }}&nbsp;</a>
+              {% endfor %}
+            </span>
+        {% else %}
+           <span class="footnote-category">&nbsp; </span>
+        {% endif %}
+
+        </div>
+        
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+ </div>
+
+<script>/*
+window.addEventListener('load',function(){(function(){var b;(b=document.getElementsByTagName("blockquote"))&&(b.length>0)
+&&Array.from(b).forEach((e)=>{e.parentElement.innerHTML=e.innerHTML;});})();})
+*/</script>
+
+
+
