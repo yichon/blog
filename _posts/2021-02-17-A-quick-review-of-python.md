@@ -6,7 +6,7 @@ tags: ["review_label", "hidden_label"]
 categories: ["Programming", "Python"]
 keywords: object-oriented
 author: Yichong Zhou
-hidden: true
+hidden: false
 ---
 
 > It is almost impossible to put all the information about Python in one mere post. 

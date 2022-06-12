@@ -6,7 +6,7 @@ tags: ["review_label", "hidden_label"]
 categories: ["Programming", "C++"]
 keywords: object-oriented
 author: Yichong Zhou
-hidden: true
+hidden: false
 ---
 
 > It is almost impossible to put all the information about C++ in one mere post. 
