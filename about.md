@@ -14,7 +14,7 @@ title:  "About"
     </p>
     
     <p>(Replace the <code class="language-plaintext">[at]</code>  with @ in the email addresses)</p>
-    <p class="username">Don’t hesitate to contact me if you have any questions.</p>
+    <p class="username">Don’t hesitate to contact me if you have any question.</p>
 </div>
 
 
